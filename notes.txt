@@ -1,0 +1,53 @@
+* Nivelamento sobre NoSQL e MongoDB
+
+- Collections: Em bancos de dados orientados a documentos, oque seriam tabelas, são chamadas de "Collections" ou coleções.
+
+- Os bancos de dados noSQL visam resolver os seguintes problemas:
+
+ Problema 1: Incompatibilidade de impedância: Quando se tem um modelo relacional, cada uma das entidades está representada por uma tabela, a incompatibilidade de impedância
+é o problema que se tem pelo fato de que os dados que estão armazenados em memória secundária estão armazenados de uma forma diferente da memória do computador
+durante o ato da execução, na memória do computador, ele estará representado por objetos relacionados, como por exemplo, em uma ordem de pedido (para sistema de vendas)
+o pedido está relacionado aos objetos (tabelas) itemPedido, PagamentoComCartão, Cliente e Endereço, essa é a repesentação do pedido em memória RAM, porém, no disco
+esses dados são armazenados em um paradigma diferente, sendo em tabelas e linhas, sendo necessário que o programa que irá trabalhar com esses dados faça essa conversão
+constantemente, a solução para isso foi o ORM, que é um assunto polêmico devido aos vários problemas de desempenho, que tem uma degradação no processamento da aplicação.
+Com ou sem ORM, as transações e junções degradam a performance.
+
+Problema 2: Grande volume de dados e acessos: Em sites não tão grandes como o Ponto Frio, Udemy ou OLX, há milhares de pessoas acessando variados dados, trazendo contigo a
+primeira decisão, que seria a de infraestrutura, decidindo se irá seguir pela tratativa de ter um supercomputador (escala vertical) que é uma escolha que traz um custo maior
+ou ter uma estrutura de cluster ou grid (escala horizontal), que traz um custo melhor, uma maior resiliência (alta confiabilidade) devido a não depender apenas de uma máquina
+já que há uma cadeia de máquinas operando em paralelo, um crescimento menos limitado devido a possibilidade de aumentar o volume do cluster, e a virtualização, possibilitando
+contratar uma empresa para criar diversas máquinas virtuais de maneira simplificada.
+Esse problema existe devido aos bancos de dados relacionais não terem sido construídos para funcionar em clusters, oque obriga o administrador a ter um custo elevado para um
+bom funcionamento da sua aplicação.
+
+- Sobre o NoSQL:
+
+1 - Primeiras influências: Google (BigTable) e Amazon (Dynamo);
+2 - O nome NoSQL é acidental;
+3 - Características mais comuns:
+3.1 - Não utilizam modelo relacional;
+3.2 - Tem uma boa execução em clusters;
+3.3 - A maioria dos projetos é de código aberto;
+3.4 - Foi criado no século XXI;
+3.5 - Não tem esquema relacional.
+
+- Duas classes princiais de bancos de dados:
+1 - Banco de dados orientado a agregados (Cerca de 90% dos casos de bancos NoSQL): É um conjunto de objetos relacionados que desejamos tratar como uma unidade;
+Tipos:
+T1 - Modelo chave-valor (Riak, Redis);
+T2 - Modelo de documentos (MongoDB, CouchDB);
+T3 - Modelo família de colunas (Cassandra, Apache HBase).
+
+2 - Banco de dados de grafos (Neo4j): Dados com relacionamento complexos (um ponto fraco dos bancos de dados orientados a agregados).
+
+- Agregado: um conjunto de objetos relacionados tratados como uma unidade;
+- Os dados não são normalizados, fazendo com que os dados frequentemente acessados juntos sejam mais importantes que a normalização.
+
+- Porquê o uso de agregados:
+Problema 1: Incompatibilidade de impedância;
+Problema 2: Grande volume de dados e acessos (em cluster);
+
+1 - Ele já possui a estrutura de objetos associados, que é compativel com a estrutura de objetos em memória RAM quando a aplicação estiver sendo executada;
+2 - É uma unidade natural de replicação e fragmentação;
+2.1 - Todos os dados de um agregado estão armazenados juntos e no mesmo nodo do cluster;
+Nota: Não suportam todo suporte ACID como bancos relacionais, mas garantem atomicidade no agregado.
