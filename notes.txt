@@ -51,3 +51,5 @@ Problema 2: Grande volume de dados e acessos (em cluster);
 2 - É uma unidade natural de replicação e fragmentação;
 2.1 - Todos os dados de um agregado estão armazenados juntos e no mesmo nodo do cluster;
 Nota: Não suportam todo suporte ACID como bancos relacionais, mas garantem atomicidade no agregado.
+
+ResponseEntity - Esse objeto encapsula toda uma estrutura necessária para retornar respostas HTTP com possiveis cabeçalhos / erros...
