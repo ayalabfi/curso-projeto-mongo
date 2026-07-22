@@ -10,10 +10,6 @@ import java.util.Arrays;
 
 // Classe de configuração do Spring Boot
 @Configuration
-/* CommandLineRunner é uma interface no Spring Boot que serve para executar automáticamente seu método
-após o carregamento do contexto da aplicação, comumente usado para inicialização de banco de dados, semeadura
-ou outras tarefas de inicialização.
- */
 public class Instantiation implements CommandLineRunner {
 
     @Autowired

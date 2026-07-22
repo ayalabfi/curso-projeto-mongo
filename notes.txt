@@ -52,4 +52,20 @@ Problema 2: Grande volume de dados e acessos (em cluster);
 2.1 - Todos os dados de um agregado estão armazenados juntos e no mesmo nodo do cluster;
 Nota: Não suportam todo suporte ACID como bancos relacionais, mas garantem atomicidade no agregado.
 
-ResponseEntity - Esse objeto encapsula toda uma estrutura necessária para retornar respostas HTTP com possiveis cabeçalhos / erros...
+- ResponseEntity - Esse objeto encapsula toda uma estrutura necessária para retornar respostas HTTP com possiveis cabeçalhos / erros...
+
+- CommandLineRunner - É uma interface no Spring Boot que serve para executar automáticamente seu método
+após o carregamento do contexto da aplicação, comumente usado para inicialização de banco de dados, semeadura
+ou outras tarefas de inicialização.
+
+- DTO (Data Transfer Object): é um objeto que tem o papel de carregar dados das entidades de forma simples, podendo
+inclusive "projetar" apenas alguns dados da entidade original, tendo como vantagens:
+
+1 - Otimizar o trafego (trafegando menos dados);
+
+2 - Evitar que dados de interesse exclusivo do sistema fiquem sendo expostos (por exemplo: senhas, dados de
+auditoria como data de criação e data de atualização do objeto, etc.);
+
+3 - Customizar os objetos trafegados conforme a necessidade de cada requisição (por exemplo: para alterar um
+produto, você precisa dos dados A, B e C; já para listar os produtos, eu preciso dos dados A, B e a categoria
+de cada produto, etc.).
