@@ -2,10 +2,12 @@ package com.ayala.workshopmongo.services;
 
 import com.ayala.workshopmongo.domain.User;
 import com.ayala.workshopmongo.repository.UserRepository;
+import com.ayala.workshopmongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -15,5 +17,12 @@ public class UserService {
 
     public List<User> findAll() {
         return repo.findAll();
+    }
+
+    public User findById(String id){
+        // Optional evita o NullPointerException, lidando explicitamente com a ausência de um valor.
+        Optional<User> obj = repo.findById(id);
+        // orElseThrow faz com que a exceção seja lançada de uma forma mais limpa no código.
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 }
