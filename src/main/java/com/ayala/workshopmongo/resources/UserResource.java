@@ -1,8 +1,10 @@
 package com.ayala.workshopmongo.resources;
 
+import com.ayala.workshopmongo.domain.Post;
 import com.ayala.workshopmongo.domain.User;
 import com.ayala.workshopmongo.dto.UserDTO;
 import com.ayala.workshopmongo.services.UserService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +55,11 @@ public class UserResource {
         obj.setId(id);
         obj = service.update(obj);
         return ResponseEntity.noContent().build()  ;
+    }
+
+    @RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
