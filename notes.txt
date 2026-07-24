@@ -1,3 +1,7 @@
+* Docs. de referência do MongoDB:
+1 - https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
+2 - https://docs.spring.io/spring-data/data-document/docs/current/reference/html/
+
 * Nivelamento sobre NoSQL e MongoDB
 
 - Collections: Em bancos de dados orientados a documentos, oque seriam tabelas, são chamadas de "Collections" ou coleções.
