@@ -1,6 +1,9 @@
-* Docs. de referência do MongoDB:
+* Docs. de referência do MongoDB e Spring Boot:
 1 - https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
 2 - https://docs.spring.io/spring-data/data-document/docs/current/reference/html/
+
+* Documentação de referência de Querys e regex do MongoDB:
+- https://docs.mongodb.com/manual/reference/operator/query/regex/
 
 * Nivelamento sobre NoSQL e MongoDB
 
